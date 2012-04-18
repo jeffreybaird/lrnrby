@@ -39,4 +39,35 @@ puts letters.capitalize
 puts ' o'.capitalize
 puts letters
 
+
+# More 6.1
+line_width = 50
+puts( 'Rain falls like water'.center(line_width))
+puts( 'Drippity Droppity Drip'.center(line_width))
+puts( 'If you are reading this'.center(line_width))
+puts( 'boo for you :)'.center(line_width))
+
+
+# Even More 6.1
+line_width = 40
+str = '--> text <--'
+puts(str.ljust(line_width))
+puts(str.rjust(line_width))
+puts(str.center(line_width))
+puts(str.ljust(line_width/2) + str.rjust(line_width/2))
+
+
+# 6.2 Things to try
+puts 'What do you want?'
+repeat = gets.chomp
+puts 'WHADDAYA MEAN "' + repeat.upcase + '"?!? YOU\'RE FIRED!!'
+
 =end
+
+line_width = 100
+puts('Table of Contents'.center(line_width))
+puts('Chapter 1:  Getting Started'.ljust(line_width/2) + 'page 1'.rjust(line_width/2))
+puts('Chapter 2:  Numbers'.ljust(line_width/2) + 'page 9'.rjust(line_width/2))
+puts('Chapter 2:  Letters'.ljust(line_width/2) + 'page 13'.rjust(line_width/2))
+
+
