@@ -23,11 +23,11 @@ puts 'Pleased to meet you, ' + name
 =begin #Assignment 5.6.2
 puts 'Hello! What is your name?'
 name = gets.chomp
-puts 'What is your favorite number?'
-fav_number = gets.chomp
-new_number = fav_number.to_i + 1
-puts name + '\'s favorite number is ' + fav_number + '.'
-puts fav_number.to_s + ' is a little small, how about ' + new_number.to_s + '?'
+puts 'What is your favorite num?'
+fav_num = gets.chomp
+new_num = fav_num.to_i + 1
+puts name + '\'s favorite num is ' + fav_num + '.'
+puts fav_num.to_s + ' is a little small, how about ' + new_num.to_s + '?'
 =end
 
 =begin # Stuff in 6.1
@@ -63,11 +63,19 @@ repeat = gets.chomp
 puts 'WHADDAYA MEAN "' + repeat.upcase + '"?!? YOU\'RE FIRED!!'
 =end
 =begin #table of contents
+ch1 = 'Chapter 1:  Getting Started'
+chp1 = 'page 1'
+ch2 = 'Chapter 2:  nums'
+chp2 = 'page 9'
+ch3 = 'Chapter 3:  Letters'
+chp3 = 'page 13'
+chapter = [ch1,ch2,ch3]
+page = [chp1,chp2,chp3]
 line_width = 100
 puts('Table of Contents'.center(line_width))
-puts('Chapter 1:  Getting Started'.ljust(line_width/2) + 'page 1'.rjust(line_width/2))
-puts('Chapter 2:  Numbers'.ljust(line_width/2) + 'page 9'.rjust(line_width/2))
-puts('Chapter 2:  Letters'.ljust(line_width/2) + 'page 13'.rjust(line_width/2))
+puts(chapter[0].ljust(line_width/2) + page[0].rjust(line_width/2))
+puts(chapter[1].ljust(line_width/2) + page[1].rjust(line_width/2))
+puts(chapter[2].ljust(line_width/2) + page[2].rjust(line_width/2))
 =end
 =begin #coder night exercise
 puts('. '* 31 +'.')
@@ -180,12 +188,13 @@ combined = [stages, empty, types]
   puts
 end
 =end
+=begin #takes a num of strings and sorts them
 puts 'Type anything'
 n = 0
 yourArray = []
 while true
   word = gets.chomp
-  yourArray[n] = word
+  yourArray = word
   puts yourArray
   n += 1
     if word == ''
@@ -193,3 +202,136 @@ while true
     end
 end
 puts yourArray.sort
+=end
+=begin #9.3 exercises
+def ask question
+  while true
+    puts question
+    reply = gets.chomp.downcase
+    
+    if (reply == 'yes' || reply == 'no')
+      if reply == 'yes'
+        return true
+      else
+        return false
+      end
+      break
+    else
+      puts 'Please answer "yes" or "no"'
+        end
+        end
+    end
+    puts 'Hello, and thank you for...'
+    puts
+    ask 'Do you like eating tacos?'
+    ask 'Do you like eating burritos?'
+    wets_bed = ask 'Do you wet the bed?'
+    ask 'Don you like eating chimichangas?'
+    puts 'Just a few more questions...'
+    ask 'Do you like drining horchata?'
+    ask 'Do you like eating flautas'
+    puts
+    puts 'DEBRIEDING'
+    puts 'Thank you for...'
+    puts
+    puts wets_bed
+    puts wets_bed
+=end
+
+=begin #first attempt old_roman_numeral
+def old_roman_numeral num
+  numarray = []
+  n = 0
+  i = 1
+  v = 5
+  x = 10
+  l = 50
+  c = 100
+  d = 500
+  m = 1000
+  while num > 0
+    if num >= m
+      num -= m
+      roman_character = 'M'
+      numarray[n] = roman_character
+      n += 1
+    elsif num < m && num >= d
+      num -= d
+      roman_character = 'D'
+      numarray[n] = roman_character
+      n += 1
+    elsif num < d && num >= c
+       num -= c
+        roman_character = 'C'
+        numarray[n] = roman_character
+        n += 1
+    elsif num < c && num >= l
+       num -= l
+        roman_character = 'L'
+        numarray[n] = roman_character
+        n += 1
+    elsif num < l && num >= x
+        num -= x
+        roman_character = 'X'
+        numarray[n] = roman_character
+        n += 1
+    elsif num < x && num >= v
+        num -= v
+        roman_character = 'V'
+        numarray[n] = roman_character
+        n += 1
+      else
+        roman_character = 'I' * num
+        numarray[n] = roman_character
+        num -= num
+      end
+    end
+    puts numarray.join
+end
+old_roman_numeral 1999
+=end
+
+#second attempt old_roman_numeral
+
+def old_roman_numeral num
+  roman = ''
+  thous = (num/1000)
+  hunds = ((num -  (1000*thous))                  /100)
+  tens  = ((num - ((1000*thous)+       (100*hunds)))/10)
+  ones  = ((num - ((1000*thous)+       (100*hunds)+(10*tens))))
+  
+  roman = roman + 'M' * (num /       1000)
+  if hunds == 9
+     roman = roman + 'CM'
+   else
+     roman = roman + 'D' * (num % 1000 / 500)
+     roman = roman + 'C' * (num % 500 / 100)
+   end
+  if tens == 9
+    roman = roman + 'XC'
+  else
+  roman = roman + 'L' * (num % 100 /  50)
+  roman = roman + 'X' * (num % 50    / 10)
+  end
+  if ones == 9
+    roman = roman + 'IX'
+  elsif ones == 4
+    roman = roman + 'IV'
+  else
+  roman = roman + 'V' * (num % 10     / 5)
+  roman = roman + 'I' * (num % 5      / 1)
+end
+  
+
+puts roman 
+puts thous 
+puts hunds
+puts tens
+puts ones
+end
+
+old_roman_numeral 1655
+
+
+
+      
