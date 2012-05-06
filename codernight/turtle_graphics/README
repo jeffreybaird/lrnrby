@@ -1,0 +1,27 @@
+The turtle graphics viewer consists of two files: turtle_viewer.rb and lib/turtle_view.rb.
+
+To perform a simple test on the viewer, open a terminal window, make the directory containing the viewer the current directory, and execute
+
+   ./turtle_viewer.rb x.rb
+
+where x.rb is a file in the same directory as the viewer and consists of the single line:
+
+self.track = [[[0.0, 0.0], [200.0, 200.0]], [[200.0, 0.0], [0.0, 200.0]]]
+
+The viewer should appear displaying an X in its upper-right quadrant.
+
+To view the default turtle design, execute
+
+   ./turtle_viewer.rb
+
+To run one of the sample turtle programs, execute
+
+   ./turtle_viewer.rb samples/<file>
+
+where <file> is one of
+
+   byzantium.rb
+   hilbert.rb
+   koch.rb
+   mandala.rb
+   tree.rb
